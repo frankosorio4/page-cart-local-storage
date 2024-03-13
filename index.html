@@ -1,0 +1,168 @@
+<!-- Ex 7 Adicione os itens do carrinho em localStorage para manter armazenado
+
+-A cada nova ‘adição no carrinho', atualize uma chave no localStorage para registrar todos os produtos comprados pelo usuário.
+
+- No inicio da aplicação, coloque uma leitura desses itens presentes no localStorage e atualize o valor total e qtd de itens em tela.
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <title>Local Storage Ex 7</title>
+</head>
+
+<body onload="checkCarrinho()">
+    <div class="title">
+        <h1 id="title">Hortifruti</h1>
+    </div>
+    <main class="main">
+
+        <div id="divConsultarCarrinho">
+            <div>
+                <h1 class="tituloDiv">Consulta de Produtos</h1>
+            </div>
+
+            <div class="form mt-28">
+                <form id="formConsultar">
+
+                    <label id="labelInput" for="nameCod">Digite o nome ou codigo do produto<br> e adicione ao carrinho:</label>
+
+                    <input id="inputNameCod" class="mt-14" type="text" name="nameCod" maxlength="15" autocomplete="off" oninput="limparBusqueda2()">
+
+                    <div class="btnsBuscar">
+                        <button id="btnConsultar" class="btn mt-14" onclick="buscarItem(event)">Consultar</button>
+
+                        <button id="btnLimparBusqueda" class="btn mt-14" onclick="limparBusqueda()">Limpar</button>
+                    </div>
+                    
+                    <div id="divResult" class="mt-14"><b></b></div>
+                    
+                </form>
+
+                <div id="divBtnCarrinho">
+                    <button id="btnAddCarrinho" class="btn mt-40" onclick="addCarrinho()">Adicionar ao Carrinho</button>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="divListaProdutos">
+            <div>
+                <h1 class="tituloDiv">Lista de Produtos</h1>
+            </div>
+            <div class="divTabla">
+                <table id="tablaProdutos" class="mt-14">
+                    <thead>
+                        <tr>
+                            <th>Codigo</td>
+                            <th>Fruta (kg)</td>
+                            <th>Preço ($)</td>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <td>F001</td>
+                        <td>Maça</td>
+                        <td>1,25</td>
+                    </tr>
+                    <tr>
+                        <td>F002</td>
+                        <td>Banana</td>
+                        <td>0,75</td>
+                    </tr>
+                    <tr>
+                        <td>F003</td>
+                        <td>Laranja</td>
+                        <td>1,00</td>
+                    </tr>
+                    <tr>
+                        <td>F004</td>
+                        <td>Pera</td>
+                        <td>1,50</td>
+                    </tr>
+                    <tr>
+                        <td>F005</td>
+                        <td>Mango</td>
+                        <td>2,99</td>
+                    </tr>
+                    <tr>
+                        <td>F006</td>
+                        <td>Abacaxi</td>
+                        <td>3,50</td>
+                    </tr>
+                    <tr>
+                        <td>F007</td>
+                        <td>Morango</td>
+                        <td>4,25</td>
+                    </tr>
+                    <tr>
+                        <td>F008</td>
+                        <td>Blueberry</td>
+                        <td>5,75</td>
+                    </tr>
+                    <tr>
+                        <td>F009</td>
+                        <td>Melancia</td>
+                        <td>4,99</td>
+                    </tr>
+                    <tr>
+                        <td>F010</td>
+                        <td>Kiwi</td>
+                        <td>2,75</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div id="divCarrinho">
+            <div>
+                <h1 class="tituloDiv">Carrinho</h1>
+            </div>
+            <div>
+                <!-- style="display: none;" -->
+                <table id="tablaCarrinho" class="mt-14">
+                    <thead>
+                        <tr>
+                            <th>Fruta</th>
+                            <th>Preço</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="divTotal mt-14">
+                <div class="btnsCarrinho">
+                    <button id="btnTotalCarrinho" class="btn" onclick="calTotal()">
+                        Total Carrinho
+                    </button>
+                    <button id="btnLimparCarrinho" class="btn" onclick="limparCarrinho()">
+                        Limpar Carrinho
+                    </button>
+                </div>
+                <!-- <div class="divTotal mt-14">
+                    <button id="btnLimparCarrinho" class="btn" onclick="limparCarrinho()">
+                        Limpar Carrinho
+                    </button>
+                </div> -->
+                <div id="divTotalCarrinho" class="mt-14"></div>
+            </div>
+
+            <div class="btnComprar mt-14">
+                <buton id="btnComprar" class="btn" onclick="comprar()">Comprar</buton>
+            </div>
+        </div>
+
+    </main>
+
+</body>
+
+</html>
+
+
+<!-- https://www.freepik.com/free-photo/abstract-blur-shopping-mall_1136121.htm#page=2&query=supermarket&position=2&from_view=keyword&track=sph&uuid=e2e36108-2bbf-423b-81ca-83a331e9bdf3 -->
