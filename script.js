@@ -71,7 +71,7 @@ function buscarItem(event) {
         let item = frutas[resultBusqueda];
         let f = item.fruit
         let p = item.price
-        divResult.textContent = f + ' = ' + p + '$';
+        divResult.textContent = f + ' = R$ ' + p;
         divResult.style.color = 'blue';
         divResult.style.fontWeight = '600';
         itemCarrinho = item;
@@ -136,7 +136,7 @@ function addRowToTabla() {
 
     const priceCell = document.createElement("td");
     // Add dollar sign for formatting
-    priceCell.textContent = `$${itemCarrinho.price}`;
+    priceCell.textContent = `R$ ${itemCarrinho.price}`;
     tableRow.appendChild(priceCell);
 
     // Append the table row to the table body
@@ -155,7 +155,7 @@ function calTotal() {
         alert('O Carrinho esta vazio.');
         return
     }
-    divTotal.textContent = 'Total Carrinho = ' + tot + ' $';
+    divTotal.textContent = 'Total Carrinho = R$ ' + tot;
     divTotal.style.color = 'black';
     divTotal.style.backgroundColor = 'white';
     divTotal.style.fontWeight = '600';
@@ -190,7 +190,7 @@ function checkCarrinho() {
 
             const priceCell = document.createElement("td");
             // Add dollar sign for formatting
-            priceCell.textContent = `$${carrinho[i].price}`;
+            priceCell.textContent = `R$ ${carrinho[i].price}`;
             tableRow.appendChild(priceCell);
 
             // Append the table row to the table body
