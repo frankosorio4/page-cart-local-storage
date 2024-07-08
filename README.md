@@ -9,9 +9,9 @@ Cart-Local Storage is a simple frontend application that simulates how to add an
 
 ## Run
 
-- Clone the repository using **vscode**.
+- Clone the repository.
 
-- Once downloaded, you can use the extension **Live server** of **vscode** to run this app locally.
+- Once cloned, you can use the extension **Live server** of **vscode** to run this app locally.
      
 ## Improvements
 
